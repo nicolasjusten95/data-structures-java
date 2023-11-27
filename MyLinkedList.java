@@ -9,7 +9,6 @@ public class MyLinkedList {
     MyLinkedList() {
         this.head = null;
         this.tail = null;
-        this.size = 0;
     }
 
     public void addFirst(Object data) {
