@@ -1,6 +1,6 @@
 import java.util.NoSuchElementException;
 
-public class MyStack<E> {
+public class MyStack {
 
     // Array with items of the stack
     private Object[] items;
@@ -19,17 +19,17 @@ public class MyStack<E> {
     }
 
     // Push function
-    public void push(E item) {
+    public void push(Object item) {
         if (isFull())
-            throw new StackOverflowError("Stack is full");
+            System.out.println("Stack is full");
         items[++top] = item;
     }
 
     // Pop function
-    public E pop() {
+    public Object pop() {
         if (isEmpty())
-            throw new NoSuchElementException("Stack is empty");
-        E item = (E) items[top];
+            System.out.println("Stack is empty");
+        Object item = items[top];
         items[top--] = null;
         return item;
     }
@@ -62,17 +62,12 @@ public class MyStack<E> {
     }
 
     public static void main(String[] args) {
-
-        MyStack<String> myStack = new MyStack<>(5);
-
+        MyStack myStack = new MyStack(5);
         myStack.push("Item 1");
         myStack.push("Item 2");
         myStack.push("Item 3");
-
         myStack.print();
-
         myStack.pop();
-
         myStack.print();
     }
 
