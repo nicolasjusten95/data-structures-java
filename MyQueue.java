@@ -1,5 +1,7 @@
 public class MyQueue {
 
+    // Array implementation of fixed size queue
+
     private Object[] items;
     private int size;
     private int front;
@@ -67,9 +69,11 @@ public class MyQueue {
         myQueue.enqueue("Item 1");
         myQueue.enqueue("Item 2");
         myQueue.enqueue("Item 3");
+        myQueue.enqueue("Item 4");
         myQueue.print();
         myQueue.dequeue();
         myQueue.print();
+        System.out.println(myQueue.peek());
     }
 
 }

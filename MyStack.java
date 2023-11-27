@@ -1,52 +1,45 @@
-import java.util.NoSuchElementException;
-
 public class MyStack {
 
-    // Array with items of the stack
+    // Array implementation of fixed size stack
+
     private Object[] items;
-
-    // Represent top of the stack
     private int top;
+    private int size;
 
-    // Represent capacity of the stack
-    private int capacity;
-
-    // Constructor
-    public MyStack(int size) {
+    MyStack(int size) {
         this.items = new Object[size];
-        this.capacity = size;
+        this.size = size;
         this.top = -1;
     }
 
-    // Push function
     public void push(Object item) {
-        if (isFull())
+        if (isFull()) {
             System.out.println("Stack is full");
+            return;
+        }
         items[++top] = item;
     }
 
-    // Pop function
     public Object pop() {
-        if (isEmpty())
+        if (isEmpty()) {
             System.out.println("Stack is empty");
+            return null;
+        }
         Object item = items[top];
         items[top--] = null;
         return item;
     }
 
-    // Function to get the size of the stack
     private int size() {
         return top + 1;
     }
 
-    // Function to check whether the stack is empty
     private boolean isEmpty() {
         return size() == 0;
     }
 
-    // Function to check whether the stack is full
     private boolean isFull() {
-        return size() == capacity;
+        return size() == size;
     }
 
     private void print() {
@@ -62,10 +55,13 @@ public class MyStack {
     }
 
     public static void main(String[] args) {
-        MyStack myStack = new MyStack(5);
+        MyStack myStack = new MyStack(3);
+        myStack.pop();
         myStack.push("Item 1");
         myStack.push("Item 2");
+        myStack.print();
         myStack.push("Item 3");
+        myStack.push("Item 4");
         myStack.print();
         myStack.pop();
         myStack.print();
